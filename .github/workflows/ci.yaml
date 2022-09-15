@@ -71,6 +71,7 @@ jobs:
       - name: Run Coverage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ERL_INETRC: "./priv/erl_inetrc"
         run: TEST_KUBECONFIG=$KUBECONFIG TEST_WAIT_TIMEOUT=110 mix coveralls.github --timeout 120000 --include integration --max-failures 1
 
       # Create PLTs if no cache was found
